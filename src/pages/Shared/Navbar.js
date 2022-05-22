@@ -13,10 +13,9 @@ const Navbar = () => {
       };
     const menuItems = <>
         <li><Link to="/">Home</Link></li>
-        <li><Link to="/appointment">Appointment</Link></li>
         <li><Link to="/review">Review</Link></li>
         <li><Link to="/contact">Contact</Link></li>
-        <li><Link to="/about">Blogs</Link></li>
+        <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/about">About</Link></li>
     </>
     return (
@@ -30,7 +29,7 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a class="btn btn-ghost normal-case text-3xl">AAS Electronics</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
@@ -45,12 +44,12 @@ const Navbar = () => {
                 </label>
                 <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                     <li>
-                        <a class="justify-between">
+                        <Link to='/profile' class="justify-between">
                             Profile
                             <span class="badge">New</span>
-                        </a>
+                        </Link>
                     </li>
-                    <li><a>Settings</a></li>
+                    <li><Link to='/settings'>Settings</Link></li>
                     <li>{user ? <button className="btn btn-ghost"  onClick={logout} >Sign Out</button> : <Link to="/login">Login</Link>}</li>
                 </ul>
             </div>
