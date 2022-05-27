@@ -1,0 +1,57 @@
+
+[
+    {
+        
+        "name": "Product_1",
+        "price": "300",
+        "available": "0",
+        "quantity":"20000",
+        "description": "The thing that many American bakers have yet to learn is that when it comes to the baguette, there's such a thing as trying too hard. Yes, this is one of the more elevated forms of white bread.",
+        "img": "https://i.ibb.co/LSjZjn0/product-1.jpg"
+    },
+    {
+        
+        "name": "Product_2",
+        "price": "100",
+        "available": "0",
+        "quantity":"10000",
+        "description": "More and more customers will soon be asking, do you mill your own grain? This is easier than it sounds—anyone with a coffee grinder and a dream can make their own flour, while people running serious bakeries can buy their own grain mill.",
+        "img": "https://i.ibb.co/YBX1zgc/product-2.jpg"
+    },
+    {
+        
+        "name": "Product_3",
+        "price": "150",
+        "available": "0",
+        "quantity":"40000",
+        "description": "You'll catch glimpses here and there, while dining out, or maybe stopping into a favorite café, but you might never even know who they are, or the story behind the bread.",
+        "img": "https://i.ibb.co/vP25StP/product-3.jpg"
+    },
+    {
+        
+        "name": "Product_4",
+        "price": "80",
+        "available": "0",
+        "quantity":"60000",
+        "description": "With little decoration beyond the colorful breads baked that morning, and a simple menu based on a wood-burning oven, this spot near Los Angeles is the lovechild of a bakery and a restaurant.",
+        "img": "https://i.ibb.co/LN7bsX4/product-4.jpg"
+    },
+    {
+        
+        "name": "Product_5",
+        "price": "100",
+        "available": "0",
+        "quantity":"5000",
+        "description": "Like so many of the best Midwest bakeries on this list, Schmutte works with a growing number of high-quality grain suppliers in the region, including Janie's Mill in neighboring Illinois.",
+        "img": "https://i.ibb.co/ypb0X32/product-5.jpg"
+    },
+    {
+        
+        "name": "Product_6",
+        "price": "300",
+        "available": "0",
+        "quantity":"25000",
+        "description": "The impressively large, locally-beloved Lumeria Books, residing comfortably in its current home for more than thirty years now, is something of a shrine to those magical.",
+        "img": "https://i.ibb.co/yF9QS1M/product-6.jpg"
+    }
+]

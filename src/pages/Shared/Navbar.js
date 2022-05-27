@@ -15,6 +15,9 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/review">Review</Link></li>
         <li><Link to="/contact">Contact</Link></li>
+        {
+            user && <li><Link to="/dashboard">DashBoard</Link></li>
+        }
         <li><Link to="/blogs">Blogs</Link></li>
         <li><Link to="/about">About</Link></li>
     </>
@@ -29,20 +32,20 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a class="btn btn-ghost normal-case text-3xl">AAS Electronics</a>
+                <Link to="/" class="btn btn-ghost normal-case text-3xl text-neutral">AAS Electronics</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
             </div>
-            <div class="dropdown dropdown-end">
-                <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                    <div class="w-10 rounded-full">
+            <div class="dropdown dropdown-xs-end ">
+                <label tabindex="0" class="btn btn-ghost btn-circle avatar ">
+                    <div class="w-10 rounded-full ">
                         <img src="https://api.lorem.space/image/face?hash=33791" />
                     </div>
                 </label>
-                <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                <ul tabindex="0" class="menu menu-compact pl-xs-18 dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 ">
                     <li>
                         <Link to='/profile' class="justify-between">
                             Profile
