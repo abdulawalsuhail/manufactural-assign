@@ -19,6 +19,7 @@ import AddProduct from './pages/Dashboard/AddProduct';
 import ManageProduct from './pages/Dashboard/ManageProduct';
 import RequireAdmin from './pages/Login/RequireAdmin';
 import MakeAdmin from './pages/Dashboard/MakeAdmin';
+import NotFound from './pages/Shared/NotFound';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
         </Route>
         <Route path='/login' element={<Login />} />
         <Route path='/logout' element={<Logout />} />
+        <Route path='*' element={<NotFound/>}/>
       </Routes>
       <Footer />
     </>
