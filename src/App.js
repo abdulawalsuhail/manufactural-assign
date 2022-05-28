@@ -20,11 +20,14 @@ import ManageProduct from './pages/Dashboard/ManageProduct';
 import RequireAdmin from './pages/Login/RequireAdmin';
 import MakeAdmin from './pages/Dashboard/MakeAdmin';
 import NotFound from './pages/Shared/NotFound';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
     <>
       <Navbar />
+      <ToastContainer/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/blogs' element={<Blogs />} />
@@ -45,6 +48,7 @@ function App() {
         <Route path='*' element={<NotFound/>}/>
       </Routes>
       <Footer />
+      
     </>
   );
 }
