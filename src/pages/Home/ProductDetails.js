@@ -26,24 +26,24 @@ const ProductDetails = () => {
 
     }, [])
 
-    const onSubmit = event => {
+    const onSubmit = data => {
         // event.preventDefault();
         // const perproduct = event.target.perproduct.value;
 
-        if (event.target?.MOQ?.value > product?.instock) {
+        if (data.MOQ > product?.instock) {
 
             toast.error('Sorry!!You can not order maximum order quantity')
 
 
             return;
         }
-        const totalPrice = parseInt(event.target?.MOQ?.value) * parseInt(product.perproduct);
+        const totalPrice = parseInt(data?.MOQ) * parseInt(product.perproduct);
         const booking = {
             product: product.name,
-            productMOQ: event.target?.MOQ?.value,
+            productMOQ: data.MOQ,
             customer: user.email,
             customerName: user.displayName,
-            phone: event.target.phone.value,
+            phone: data.phone,
             totalPrice: totalPrice
         }
         console.log(booking)
@@ -64,7 +64,7 @@ const ProductDetails = () => {
                 // else {
                 //     toast.error(`Already have an order.`)
                 // }
-                setProduct();
+                // setProduct();
 
             });
     }
@@ -136,7 +136,7 @@ const ProductDetails = () => {
                         <label class="label">
                             <span class="label-text">Your phone</span>
                         </label>
-                        <input type="number" name="phone" placeholder='Your phone' className="input input-bordered w-full max-w-xs"   {...register("phone", {
+                        <input type="number"  placeholder='Your phone' className="input input-bordered w-full max-w-xs"   {...register("phone", {
                             required: true
                         })} />
                         <label className="label">
@@ -145,7 +145,7 @@ const ProductDetails = () => {
                         </label>
                     </div>
 
-                    <input type="text" name="MOQ" placeholder="Minimum order Quantity 100 " className="input input-bordered w-full max-w-xs"  {...register("MOQ")} />
+                    <input type="number"  placeholder="Minimum order Quantity 100 " className="input input-bordered w-full max-w-xs"  {...register("MOQ")} />
 
 
                     <input type="submit" value="Purchase" className="btn btn-accent w-full max-w-xs" />
