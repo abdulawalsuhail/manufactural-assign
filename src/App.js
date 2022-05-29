@@ -12,7 +12,6 @@ import RequireAuth from './pages/Login/RequireAuth';
 import Dashboard from './pages/Dashboard/Dashboard';
 import ProductDetails from './pages/Home/ProductDetails';
 import MyProfile from './pages/Dashboard/MyProfile';
-import Reviews from './pages/Reviews/Reviews';
 import MyPurchase from './pages/Dashboard/MyPurchase';
 import ManageOrder from './pages/Dashboard/ManageOrder';
 import AddProduct from './pages/Dashboard/AddProduct';
@@ -22,6 +21,7 @@ import MakeAdmin from './pages/Dashboard/MakeAdmin';
 import NotFound from './pages/Shared/NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AddReviews from './pages/Reviews/AddReviews';
 
 function App() {
   return (
@@ -36,7 +36,7 @@ function App() {
         <Route path='/product/:productId' element={<ProductDetails />} />
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<MyPurchase></MyPurchase>}></Route>
-          <Route path="review" element={<Reviews></Reviews>}></Route>
+          <Route path="review" element={<AddReviews></AddReviews>}></Route>
           <Route path="profile" element={<MyProfile></MyProfile>}></Route>
           <Route path="manageOrder" element={<RequireAdmin><ManageOrder></ManageOrder></RequireAdmin>}></Route>
           <Route path="addProduct" element={<RequireAdmin><AddProduct/></RequireAdmin>}></Route>

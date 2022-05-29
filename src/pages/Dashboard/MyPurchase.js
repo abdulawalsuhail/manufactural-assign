@@ -2,25 +2,26 @@ import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const MyPurchase = () => {
     const [purchases, setPurchases] = useState([]);
-    console.log(purchases)
+    // const [deletingOrder, setDeletingOrder] = useState(null);
+    // console.log(purchases)
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
 
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/order`, {
+        fetch(`http://localhost:5000/order?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
         })
             .then(res => {
-                // console.log('res', res);
                 if (res.status === 401 || res.status === 403) {
                     signOut(auth);
                     localStorage.removeItem('accessToken');
@@ -28,9 +29,31 @@ const MyPurchase = () => {
                 }
                 return res.json()
             })
-            .then(data => setPurchases(data));
+            .then(data => {
+                // console.log(data)
+                setPurchases(data)
+            });
 
     }, [user, navigate])
+
+    const handleDelete = id => {
+        fetch(`http://localhost:5000/order/${id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                const remaining = purchases.filter((data) => data._id !== id);
+                toast.success("Delete Success fully");
+                // setDeletingOrder(null);
+                setPurchases(remaining)
+            })
+    }
+
+
 
     return (
         <div>
@@ -42,19 +65,20 @@ const MyPurchase = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Price</th>
-                            <th>Payment</th>
                             <th>Order Quantity</th>
+                            <th>payment</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            purchases.map((a, index) => <tr key={a._id}>
+                            purchases?.map((a, index) => <tr key={a._id}>
                                 <th>{index + 1}</th>
                                 <td>{a.customerName}</td>
                                 <td>{a.totalPrice}</td>
-                                <td>{}</td>
                                 <td>{a.MOQ}</td>
-                                {/* <td>{a.price}</td> */}
+                                <td><button className='btn btn-xs btn-success'>pay</button></td>
+                                <td><button className='btn btn-xs btn-secondary ' onClick={() => handleDelete(a._id)}>Delete</button></td>
                                 <td>
                                     {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
                                     {(a.price && a.paid) && <div>
