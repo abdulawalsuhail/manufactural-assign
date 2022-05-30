@@ -20,7 +20,7 @@ const Dashboard = () => {
                     {/* <!-- Sidebar content here --> */}
                     <li><Link to="/dashboard">My Orders</Link></li>
                     <li><Link to="/dashboard/profile">My Profile</Link></li>
-                    <li><Link to="/dashboard/review">Add A Review</Link></li>
+                    <li><Link to="/dashboard/addReview">Add A Review</Link></li>
                     {/* { admin && <> */}
                         <li><Link to="/dashboard/admin">Make Admin</Link></li>
                         <li><Link to="/dashboard/manageOrder">Manage All Orders</Link></li>

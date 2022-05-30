@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Home/Product'
-import PurchaseModal from './PurchaseModal';
 
 const Products = () => {
     const [products, setProducts] = useState([])
@@ -26,13 +25,7 @@ const Products = () => {
                     ></Product>)
                 }
             </div>
-            {
-                purchase && <PurchaseModal
-                    purchase={purchase}
-                    setPurchase={setPurchase}
-                    setBooked={setBooked}
-                ></PurchaseModal>
-            }
+           
         </div>
     );
 };

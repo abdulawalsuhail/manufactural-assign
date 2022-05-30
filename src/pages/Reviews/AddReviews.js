@@ -69,9 +69,9 @@ const AddReviews = () => {
                             <button
                                 disabled={review > 5 || review < 1}
                                 type="submit"
-                                className="btn btn-wide mt-3"
+                                className="btn btn-accent mt-3"
                             >
-                                Add
+                                Add Review
                             </button>
                         </div>
                     </form>

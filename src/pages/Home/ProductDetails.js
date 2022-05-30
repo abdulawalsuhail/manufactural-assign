@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import './PeoductDetails.css';
 
 const ProductDetails = () => {
   const { productId } = useParams();
@@ -69,7 +70,7 @@ const ProductDetails = () => {
                 Minimum Order :{" "}
                 <span className="text-orange-500 font-bold">
                   {" "}
-                  {item.minOrder}p
+                  {item.minimumorder}p
                 </span>
               </small>
             </p>

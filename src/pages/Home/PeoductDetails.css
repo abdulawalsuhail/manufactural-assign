@@ -1,0 +1,63 @@
+.purchase-container{
+    border-radius: 8px;
+    border: 1px solid rgba(251, 233, 227, 0.928);
+    background-color: rgba(154, 152, 152, 0.042);
+    box-shadow: 0px 8px 15px rgba(183, 179, 179, 0.098);
+    transition: all 0.3s ease 0s;
+    padding: 30px;
+    margin: 40px 0px;
+}
+
+.purchase-container:hover{
+    background-color: #ffffff;
+    box-shadow: 0px 15px 20px rgba(247, 188, 156, 0.29);
+    /* color: #f68051; */
+    /* transform: translateY(-7px); */
+  }
+
+  .product-detail{
+      display: flex;
+      justify-content: space-between;
+  }
+
+  .order-detail{
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      gap: 20px;
+  }
+
+.order-detail label,
+.order-detail input,
+.order-detail textarea,
+.order-detail button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.order-detail input::placeholder {
+    color: rgb(122, 113, 113);
+}
+
+.order-detail input,
+.order-detail textarea
+{
+    background: #f3eeece4;
+    padding: 10px;
+    height: 50px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+  @media only screen and (max-width: 600px) {
+    .product-detail{
+        flex-direction: column;
+    }
+    .order-detail{
+        grid-template-columns: 1fr;
+    }
+  }
+/* Write to Abdul Awal Suhail */
