@@ -10,7 +10,7 @@ const AddReviews = () => {
     const { register, handleSubmit, watch } = useForm();
     const review = watch("rating");
     const onSubmit = (data, e) => {
-        const url = `http://localhost:5000/review`;
+        const url = `https://assignment-manu-12.herokuapp.com/review`;
         fetch(url, {
             method: "POST",
             headers: {

@@ -8,6 +8,7 @@ import './PeoductDetails.css';
 
 const ProductDetails = () => {
   const { productId } = useParams();
+//   console.log(productId)
   const [user] = useAuthState(auth);
   const [item, setItem] = useState({});
 //   console.log(item)
@@ -15,11 +16,11 @@ const ProductDetails = () => {
   // const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
-    const url = `http://localhost:5000/product/${productId}`;
+    const url = `https://assignment-manu-12.herokuapp.com/product/${productId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
-  }, []);
+  }, [productId]);
 
   const { register, handleSubmit, watch } = useForm();
   const orderQuantity = watch("MOQ");
@@ -27,7 +28,7 @@ const ProductDetails = () => {
   const onSubmit = (data, e) => {
     data.item = item;
     console.log(data);
-    const url = `http://localhost:3000/order`;
+    const url = `https://assignment-manu-12.herokuapp.com/order`;
     fetch(url, {
       method: "POST",
       headers: {
@@ -39,7 +40,7 @@ const ProductDetails = () => {
       .then((res) => res.json())
       .then((result) => {
         e.target.reset();
-        toast.success("Your Order Success fully Added");
+        toast.success("Your Order Successfully Added");
       });
   };
 

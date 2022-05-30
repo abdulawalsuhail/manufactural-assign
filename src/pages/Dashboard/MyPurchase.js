@@ -15,7 +15,7 @@ const MyPurchase = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/order?email=${user.email}`, {
+        fetch(`https://assignment-manu-12.herokuapp.com/order?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -37,7 +37,7 @@ const MyPurchase = () => {
     }, [user, navigate])
 
     const handleDelete = id => {
-        fetch(`http://localhost:5000/order/${id}`, {
+        fetch(`https://assignment-manu-12.herokuapp.com/order/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -64,7 +64,7 @@ const MyPurchase = () => {
                         <tr>
                             <th></th>
                             <th>Name</th>
-                            <th>Price</th>
+                            {/* <th>Price</th> */}
                             <th>Order Quantity</th>
                             <th>payment</th>
                             <th>Action</th>
@@ -74,8 +74,8 @@ const MyPurchase = () => {
                         {
                             purchases?.map((a, index) => <tr key={a._id}>
                                 <th>{index + 1}</th>
-                                <td>{a.customerName}</td>
-                                <td>{a.totalPrice}</td>
+                                <td>{a.name}</td>
+                                {/* <td>{a.totalPrice}</td> */}
                                 <td>{a.MOQ}</td>
                                 <td><button className='btn btn-xs btn-success'>pay</button></td>
                                 <td><button className='btn btn-xs btn-secondary ' onClick={() => handleDelete(a._id)}>Delete</button></td>

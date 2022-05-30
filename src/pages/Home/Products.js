@@ -3,17 +3,15 @@ import Product from '../Home/Product'
 
 const Products = () => {
     const [products, setProducts] = useState([])
-    const [purchase, setPurchase] = useState(null);
-    const [booked, setBooked] = useState(false) 
 
     useEffect(() => {
-        const url = 'http://localhost:5000/product'
+        const url = 'https://assignment-manu-12.herokuapp.com/product'
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
             })
-    }, [booked])
+    }, [])
     return (
         <div class="px-20  shadow-xl">
             <h2 class="text-5xl font-bold text-accent">Tools Parts</h2>

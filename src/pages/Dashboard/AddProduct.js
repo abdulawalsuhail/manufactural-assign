@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useAuthState } from "react-firebase-hooks/auth";
-
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
@@ -13,7 +12,7 @@ const AddProduct = () => {
         data.email = user?.email;
 
         console.log(data);
-        const url = `http://localhost:5000/product`;
+        const url = `https://assignment-manu-12.herokuapp.com/product`;
         fetch(url, {
             method: "POST",
             headers: {
@@ -26,13 +25,13 @@ const AddProduct = () => {
             .then((result) => {
                 e.target.reset();
                 toast("Added New Item");
-                console.log(result);
+                // console.log(result);
             });
     };
 
     return (
-        <div className="login-container">
-            <div className="login-title">Product Detail</div>
+        <div className="form-control w-full max-w-xs">
+            <div className="uppercase text-center text-primary font-bold text-2xl">Product Detail</div>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                     placeholder="Product Name"

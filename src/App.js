@@ -13,7 +13,6 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import ProductDetails from './pages/Home/ProductDetails';
 import MyProfile from './pages/Dashboard/MyProfile';
 import MyPurchase from './pages/Dashboard/MyPurchase';
-import ManageOrder from './pages/Dashboard/ManageOrder';
 import AddProduct from './pages/Dashboard/AddProduct';
 import ManageProduct from './pages/Dashboard/ManageProduct';
 import RequireAdmin from './pages/Login/RequireAdmin';
@@ -23,6 +22,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddReviews from './pages/Reviews/AddReviews';
 import UpdateProfile from './pages/Dashboard/UpdateProfile';
+import ManageAllProduct from './pages/Dashboard/MnageAllProduct';
 
 function App() {
   return (
@@ -40,7 +40,7 @@ function App() {
           <Route index element={<MyPurchase></MyPurchase>}></Route>
           <Route path="addReview" element={<AddReviews></AddReviews>}></Route>
           <Route path="profile" element={<MyProfile></MyProfile>}></Route>
-          <Route path="manageOrder" element={<RequireAdmin><ManageOrder></ManageOrder></RequireAdmin>}></Route>
+          <Route path="manageOrder" element={<RequireAdmin><ManageAllProduct/></RequireAdmin>}></Route>
           <Route path="addProduct" element={<RequireAdmin><AddProduct/></RequireAdmin>}></Route>
           <Route path="admin" element={<RequireAdmin><MakeAdmin/></RequireAdmin>}></Route>
           <Route path="manageProduct" element={<RequireAdmin><ManageProduct/></RequireAdmin>}></Route>
