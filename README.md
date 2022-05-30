@@ -8,15 +8,15 @@
 
 ### Technologies Used :
 
-### React Js, 
-### React Router,
-### Firebase, 
-### Tailwind, 
-### React Hook Form,
-### Mongo DB ,
- ### Heroku,
-  ### Stripe,
-   ### Node Js,
-### jsonwebtoken.
+##### React Js, 
+##### React Router,
+##### Firebase, 
+##### Tailwind, 
+##### React Hook Form,
+##### Mongo DB ,
+##### Heroku,
+##### Stripe,
+##### Node Js,
+##### jsonwebtoken.
 
 
