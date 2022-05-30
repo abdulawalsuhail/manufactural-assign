@@ -35,7 +35,7 @@ const MyProfile = () => {
           <div className="flex justify-center mt-5">
             <div>
               <Link to="/updateProfile">
-                <button className="hero-btn rounded-full">Edit Profile</button>
+                <button className= " btn bg-sky-500 text-white ring-2 ring-accent-500 ring-offset-4 ring-offset-purple-100">Edit Profile</button>
               </Link>
             </div>
           </div>

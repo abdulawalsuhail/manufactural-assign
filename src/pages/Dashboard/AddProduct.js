@@ -30,45 +30,55 @@ const AddProduct = () => {
     };
 
     return (
-        <div className="form-control w-full max-w-xs">
+        <div className="form-control w-full max-w-xs m-4">
             <div className="uppercase text-center text-primary font-bold text-2xl">Product Detail</div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input
-                    placeholder="Product Name"
-                    required
-                    {...register("name", { maxLength: 20 })}
-                />
-                <textarea
-                    placeholder="description"
-                    required
-                    {...register("description")}
-                />
-                <input
-                    placeholder="Product price"
-                    type="number"
-                    required
-                    {...register("price")}
-                />
-                <input
-                    placeholder="quantity"
-                    type="number"
-                    required
-                    {...register("quantity")}
-                />
-                <input
-                    placeholder="Minimum Order"
-                    type="number"
-                    required
-                    {...register("minOrder")}
-                />
-                <input
-                    placeholder="Photo Url"
-                    type="text"
-                    required
-                    {...register("img")}
-                />
-                <button type="submit">Add Item</button>
-            </form>
+            <div className="">
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <input
+                        className="input input-bordered w-full max-w-xs my-3"
+                        placeholder="Product Name"
+                        required
+                        {...register("name", { maxLength: 20 })}
+                    />
+                    <textarea
+                        className="input input-bordered w-full max-w-xs my-3"
+                        placeholder="description"
+                        required
+                        {...register("description")}
+                    />
+                    <input
+                        className="input input-bordered w-full max-w-xs my-3"
+                        placeholder="Product price"
+                        type="number"
+                        required
+                        {...register("perproduct")}
+                    />
+                    <input
+                        className="input input-bordered w-full max-w-xs my-3"
+                        placeholder="quantity"
+                        type="number"
+                        required
+                        {...register("instock")}
+                    />
+                    <input
+                        className="input input-bordered w-full max-w-xs my-3"
+                        placeholder="Minimum Order"
+                        type="number"
+                        required
+                        {...register("minimumorder")}
+                    />
+                    <input
+                        className="input input-bordered w-full max-w-xs my-3"
+                        placeholder="Photo Url"
+                        type="text"
+                        required
+                        {...register("img")}
+                    />
+                    <button type="submit" className="btn bg-purple-500 ring-2 ring-purple-500 ring-offset-4 ring-offset-purple-100">
+                                Save Change
+                            </button>
+                </form>
+            </div>
         </div>
     );
 };

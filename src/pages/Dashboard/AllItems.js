@@ -2,7 +2,8 @@ import React from "react";
 import "./AllItems.css";
 
 const AllItems = ({ item, handleDelete }) => {
-  const { _id, name, price, img, quantity, minOrder } = item;
+  const { _id, name, perproduct, img, instock, minimumorder } = item;
+  console.log(item)
 
   return (
     <div className="">
@@ -17,14 +18,14 @@ const AllItems = ({ item, handleDelete }) => {
             <div>
               <h5>
                 {" "}
-                Price : <span className="font-bold">{price}$</span>
+                Price : <span className="font-bold">{perproduct}$</span>
               </h5>
               <div className="product-info">
                 <p>
                   <small>
                     Stock :{" "}
                     <span className="text-orange-500 font-bold">
-                      {quantity}p
+                      {instock}p
                     </span>
                   </small>
                 </p>
@@ -33,7 +34,7 @@ const AllItems = ({ item, handleDelete }) => {
                     Minimum Order :{" "}
                     <span className="text-orange-500 font-bold">
                       {" "}
-                      {minOrder}p
+                      {minimumorder}p
                     </span>
                   </small>
                 </p>
@@ -41,7 +42,7 @@ const AllItems = ({ item, handleDelete }) => {
             </div>
             <div className="card-actions buy-btn mt-3">
               <button
-                className="btn hero-btn"
+                className="btn hero-btn bg-accent text-black font-bold hover:text-white "
                 onClick={() => handleDelete(_id)}
               >
                 Delete

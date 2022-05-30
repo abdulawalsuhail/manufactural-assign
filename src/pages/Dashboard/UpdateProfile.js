@@ -113,7 +113,7 @@ const UpdateProfile = () => {
                     />
                     <div className="flex justify-center mt-5">
                         <div>
-                            <button type="submit" className="btn btn-accent p-3 rounded-full">
+                            <button type="submit" className="btn bg-purple-500 ring-2 ring-purple-500 ring-offset-4 ring-offset-purple-100">
                                 Save Change
                             </button>
                         </div>

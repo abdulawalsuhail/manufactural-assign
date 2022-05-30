@@ -7,15 +7,13 @@ import auth from '../../firebase.init';
 
 const MyPurchase = () => {
     const [purchases, setPurchases] = useState([]);
-    // const [deletingOrder, setDeletingOrder] = useState(null);
-    // console.log(purchases)
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
 
 
     useEffect(() => {
 
-        fetch(`https://assignment-manu-12.herokuapp.com/order?email=${user.email}`, {
+        fetch(`https://assignment-manu-12.herokuapp.com/myOrder?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -30,7 +28,6 @@ const MyPurchase = () => {
                 return res.json()
             })
             .then(data => {
-                // console.log(data)
                 setPurchases(data)
             });
 
@@ -77,16 +74,22 @@ const MyPurchase = () => {
                                 <td>{a.name}</td>
                                 {/* <td>{a.totalPrice}</td> */}
                                 <td>{a.MOQ}</td>
-                                <td><button className='btn btn-xs btn-success'>pay</button></td>
-                                <td><button className='btn btn-xs btn-secondary ' onClick={() => handleDelete(a._id)}>Delete</button></td>
-                                <td>
-                                    {(a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>}
-                                    {(a.price && a.paid) && <div>
-                                        <p><span className='text-success'>Paid</span></p>
-                                        <p>Transaction id: <span className='text-success'>{a.transactionId}</span></p>
-                                    </div>}
+                                <td><Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>
+                                    {
+                                        (a.price && !a.paid) && <Link to={`/dashboard/payment/${a._id}`}><button className='btn btn-xs btn-success'>pay</button></Link>
+                                    }
+
+
+                                    {
+                                        (a.price && a.paid) && <div>
+                                            <p><span className='text-success'>Paid</span></p>
+                                            <p>Transaction id: <span className='text-success'>{a.transactionId}</span></p>
+                                        </div>
+                                    }
                                 </td>
-                            </tr>)
+                                <td><button className='btn btn-xs btn-secondary ' onClick={() => handleDelete(a._id)}>Delete</button></td>
+                            </tr>
+                            )
                         }
 
 

@@ -13,7 +13,6 @@ const ProductDetails = () => {
   const [item, setItem] = useState({});
 //   console.log(item)
 
-  // const [quantity, setQuantity] = useState(0);
 
   useEffect(() => {
     const url = `https://assignment-manu-12.herokuapp.com/product/${productId}`;
@@ -27,7 +26,7 @@ const ProductDetails = () => {
 
   const onSubmit = (data, e) => {
     data.item = item;
-    console.log(data);
+    // console.log(data);
     const url = `https://assignment-manu-12.herokuapp.com/order`;
     fetch(url, {
       method: "POST",

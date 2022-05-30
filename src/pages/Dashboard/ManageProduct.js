@@ -1,80 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import useItems from "../../hooks/useItem";
+import AllItems from "./AllItems";
+import "./ManageAllProduct.css";
 
-const ManageOrder = () => {
-  const [allOrder, setAllOrder] = useState([]);
-  // console.log(allOrder.length)
-  
-
-  useEffect(() => {
-    fetch(`https://assignment-manu-12.herokuapp.com/product`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setAllOrder(data));
-  }, []);
+const ManageAllProduct = () => {
+  const [items, setItems] = useItems();
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure?");
+    if (proceed) {
+      const url = `https://assignment-manu-12.herokuapp.com/product/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          const remaining = items.filter((item) => item._id !== id);
+          setItems(remaining);
+        });
+    }
+  };
 
   return (
     <div>
-      <div className="overflow-x-auto">
-        <table className="table w-full">
-          <thead>
-            <tr>
-              <th></th>
-              <th>Avatar</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Payment</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {allOrder.map((o, index) => (
-              <tr key={o._id}>
-                <th>{index + 1}</th>
-                <td>
-                  <img width={40} src={o.item.img} alt="" />
-                </td>
-                <td>{o?.item?.name}</td>
-                <td>{o?.item?.price}</td>
-                <td>
-                  {o?.item?.price && !o.paid && (
-                    <button className="btn btn-xs btn-error text-white">
-                      UNPAID
-                    </button>
-                  )}
-                  {o?.item?.price && o.paid && (
-                    <button className="btn-xs text-green-500 font-bold">
-                      PAY DONE
-                    </button>
-                  )}
-                </td>
-                <td>
-                  {o?.item?.price && o.paid && (
-                    <label
-                    //  onClick={()=>handleShipping(o._id)}
-                      for="delete-confirm-modal"
-                      className="btn btn-xs btn-success modal-button text-white"
-                    >
-                      {" "}
-                      Shipping
-                    </label>
-                  )}
-                  {o && o?.Shift && (
-                    <button className="btn-xs text-green-500 font-bold">
-                      Shift
-                    </button>
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="container">
+        <div className="AllItems-section mt-5">
+          {items.map((item) => (
+            <AllItems
+              key={item._id}
+              item={item}
+              handleDelete={handleDelete}
+            ></AllItems>
+          ))}
+        </div>
+        <div className="add-more">
+          <Link
+            className="text-white fw-bold pe-auto text-decoration-none"
+            to="/dashboard/addProduct"
+          >
+            <button className="text-center btn hero-btn mt-3 bg-accent text-black font-bold hover:text-white ">Add More</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 };
 
-export default ManageOrder;
+export default ManageAllProduct;

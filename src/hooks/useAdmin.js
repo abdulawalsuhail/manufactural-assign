@@ -4,8 +4,8 @@ const useAdmin = user => {
     const [admin, setAdmin] = useState(false);
     // console.log(admin)
     const [adminLoading, setAdminLoading] = useState(true);
+    const email = user?.email;
     useEffect(() => {
-        const email = user?.email;
         if (email) {
             fetch(`https://assignment-manu-12.herokuapp.com/admin/${email}`, {
                 method: 'GET',
@@ -21,7 +21,7 @@ const useAdmin = user => {
                     setAdminLoading(false);
                 })
         }
-    }, [user])
+    }, [user,email])
 
     return [admin, adminLoading]
 }

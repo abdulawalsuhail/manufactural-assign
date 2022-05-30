@@ -22,22 +22,24 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddReviews from './pages/Reviews/AddReviews';
 import UpdateProfile from './pages/Dashboard/UpdateProfile';
-import ManageAllProduct from './pages/Dashboard/MnageAllProduct';
+import ManageAllProduct from './pages/Dashboard/ManageAllProduct';
+import Payment from './pages/Dashboard/Payment';
 
 function App() {
   return (
-    <>
+    <div className='font-sans'>
       <Navbar />
       <ToastContainer/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/blogs' element={<Blogs />} />
-        <Route path='/about' element={<About />} />
+        <Route path='/about' element={<RequireAuth><About /></RequireAuth>} />
         <Route path='/updateProfile' element={<UpdateProfile />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/product/:productId' element={<ProductDetails />} />
         <Route path='/dashboard' element={<RequireAuth><Dashboard /></RequireAuth>}>
           <Route index element={<MyPurchase></MyPurchase>}></Route>
+          <Route path="payment/:id" element={<Payment></Payment>}></Route>
           <Route path="addReview" element={<AddReviews></AddReviews>}></Route>
           <Route path="profile" element={<MyProfile></MyProfile>}></Route>
           <Route path="manageOrder" element={<RequireAdmin><ManageAllProduct/></RequireAdmin>}></Route>
@@ -51,7 +53,7 @@ function App() {
       </Routes>
       <Footer />
       
-    </>
+    </div>
   );
 }
 
