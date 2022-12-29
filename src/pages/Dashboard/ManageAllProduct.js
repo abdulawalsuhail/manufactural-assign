@@ -3,10 +3,10 @@ import React, { useEffect, useState } from "react";
 const ManageOrder = () => {
   const [allOrder, setAllOrder] = useState([]);
   console.log(allOrder)
-  
+
 
   useEffect(() => {
-    fetch(`https://assignment-manu-12.herokuapp.com/order`, {
+    fetch(`https://manufact-server-assign-production.up.railway.app/order`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -54,7 +54,7 @@ const ManageOrder = () => {
                 <td>
                   {o?.item?.perproduct && o.paid && (
                     <label
-                    //  onClick={()=>handleShipping(o._id)}
+                      //  onClick={()=>handleShipping(o._id)}
                       for="delete-confirm-modal"
                       className="btn btn-xs btn-success modal-button text-white"
                     >

@@ -9,7 +9,7 @@ const ManageAllProduct = () => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure?");
     if (proceed) {
-      const url = `https://assignment-manu-12.herokuapp.com/product/${id}`;
+      const url = `https://manufact-server-assign-production.up.railway.app/product/${id}`;
       fetch(url, {
         method: "DELETE",
       })

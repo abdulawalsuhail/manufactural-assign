@@ -13,7 +13,7 @@ const MyPurchase = () => {
 
     useEffect(() => {
 
-        fetch(`https://assignment-manu-12.herokuapp.com/myOrder?email=${user.email}`, {
+        fetch(`https://manufact-server-assign-production.up.railway.app/myOrder?email=${user.email}`, {
             method: 'GET',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -34,7 +34,7 @@ const MyPurchase = () => {
     }, [user, navigate])
 
     const handleDelete = id => {
-        fetch(`https://assignment-manu-12.herokuapp.com/order/${id}`, {
+        fetch(`https://manufact-server-assign-production.up.railway.app/order/${id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

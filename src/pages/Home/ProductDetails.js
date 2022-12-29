@@ -8,14 +8,14 @@ import './PeoductDetails.css';
 
 const ProductDetails = () => {
   const { productId } = useParams();
-//   console.log(productId)
+  //   console.log(productId)
   const [user] = useAuthState(auth);
   const [item, setItem] = useState({});
-//   console.log(item)
+  //   console.log(item)
 
 
   useEffect(() => {
-    const url = `https://assignment-manu-12.herokuapp.com/product/${productId}`;
+    const url = `https://manufact-server-assign-production.up.railway.app/product/${productId}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setItem(data));
@@ -27,7 +27,7 @@ const ProductDetails = () => {
   const onSubmit = (data, e) => {
     data.item = item;
     // console.log(data);
-    const url = `https://assignment-manu-12.herokuapp.com/order`;
+    const url = `https://manufact-server-assign-production.up.railway.app/order`;
     fetch(url, {
       method: "POST",
       headers: {

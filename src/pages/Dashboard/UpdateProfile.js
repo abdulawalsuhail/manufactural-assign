@@ -12,7 +12,7 @@ const UpdateProfile = () => {
 
     const onSubmit = (data, e) => {
         console.log(data);
-        const url = `https://assignment-manu-12.herokuapp.com/profile/${user.email}`;
+        const url = `https://manufact-server-assign-production.up.railway.app/profile/${user.email}`;
         fetch(url, {
             method: "PUT",
             headers: {

@@ -7,7 +7,7 @@ const useAdmin = user => {
     const email = user?.email;
     useEffect(() => {
         if (email) {
-            fetch(`https://assignment-manu-12.herokuapp.com/admin/${email}`, {
+            fetch(`https://manufact-server-assign-production.up.railway.app/admin/${email}`, {
                 method: 'GET',
                 headers: {
                     'content-type': 'application/json',
@@ -21,7 +21,7 @@ const useAdmin = user => {
                     setAdminLoading(false);
                 })
         }
-    }, [user,email])
+    }, [user, email])
 
     return [admin, adminLoading]
 }

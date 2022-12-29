@@ -5,7 +5,7 @@ const Products = () => {
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        const url = 'https://assignment-manu-12.herokuapp.com/product'
+        const url = 'https://manufact-server-assign-production.up.railway.app/product'
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -23,7 +23,7 @@ const Products = () => {
                     ></Product>)
                 }
             </div>
-           
+
         </div>
     );
 };

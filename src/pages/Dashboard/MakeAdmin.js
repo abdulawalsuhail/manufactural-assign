@@ -4,13 +4,13 @@ import Loading from '../Shared/Loading';
 import AdminRow from './AdminRow';
 
 const MakeAdmin = () => {
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://assignment-manu-12.herokuapp.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://manufact-server-assign-production.up.railway.app/user', {
         method: 'GET',
         headers: {
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
         }
     }).then(res => res.json()));
-    
+
     if (isLoading) {
         return <Loading></Loading>
     }

@@ -13,7 +13,7 @@ const CheckoutForm = ({ product }) => {
     const { _id, perproduct, name, customer } = product;
 
     useEffect(() => {
-        fetch('https://assignment-manu-12.herokuapp.com/create-payment-intent', {
+        fetch('https://manufact-server-assign-production.up.railway.app/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -80,7 +80,7 @@ const CheckoutForm = ({ product }) => {
                 product: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://assignment-manu-12.herokuapp.com/${_id}`, {
+            fetch(`https://manufact-server-assign-production.up.railway.app/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

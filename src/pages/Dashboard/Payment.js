@@ -10,7 +10,7 @@ const stripePromise = loadStripe('pk_test_51L1q3WE0xC6pJnzNqbL58cmnStdQ96dmd83YS
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `https://assignment-manu-12.herokuapp.com/order/${id}`;
+    const url = `https://manufact-server-assign-production.up.railway.app/order/${id}`;
 
     const { data: product, isLoading } = useQuery(['order', id], () => fetch(url, {
         method: 'GET',

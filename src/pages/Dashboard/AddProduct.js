@@ -12,7 +12,7 @@ const AddProduct = () => {
         data.email = user?.email;
 
         console.log(data);
-        const url = `https://assignment-manu-12.herokuapp.com/product`;
+        const url = `https://manufact-server-assign-production.up.railway.app/product`;
         fetch(url, {
             method: "POST",
             headers: {
@@ -75,8 +75,8 @@ const AddProduct = () => {
                         {...register("img")}
                     />
                     <button type="submit" className="btn bg-purple-500 ring-2 ring-purple-500 ring-offset-4 ring-offset-purple-100">
-                                Save Change
-                            </button>
+                        Save Change
+                    </button>
                 </form>
             </div>
         </div>

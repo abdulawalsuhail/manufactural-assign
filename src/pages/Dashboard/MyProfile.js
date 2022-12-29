@@ -13,7 +13,7 @@ const MyProfile = () => {
   //   console.log(name)
 
   useEffect(() => {
-    fetch(`https://assignment-manu-12.herokuapp.com/profile?email=${user?.email}`, {
+    fetch(`https://manufact-server-assign-production.up.railway.app/profile?email=${user?.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
@@ -35,7 +35,7 @@ const MyProfile = () => {
           <div className="flex justify-center mt-5">
             <div>
               <Link to="/updateProfile">
-                <button className= " btn bg-sky-500 text-white ring-2 ring-accent-500 ring-offset-4 ring-offset-purple-100">Edit Profile</button>
+                <button className=" btn bg-sky-500 text-white ring-2 ring-accent-500 ring-offset-4 ring-offset-purple-100">Edit Profile</button>
               </Link>
             </div>
           </div>

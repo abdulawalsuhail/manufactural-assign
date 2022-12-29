@@ -4,7 +4,7 @@ const useItems = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("https://assignment-manu-12.herokuapp.com/product", {
+    fetch("https://manufact-server-assign-production.up.railway.app/product", {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("accessToken")}`,
